@@ -12,6 +12,9 @@
     },
     "cordova-plugin-camera": {
       "PACKAGE_NAME": "com.dani.helloworld"
+    },
+    "cordova-plugin-flashlight": {
+      "PACKAGE_NAME": "com.dani.helloworld"
     }
   },
   "dependent_plugins": {}

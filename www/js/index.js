@@ -30,6 +30,7 @@ var app = {
     // Same than onCreate() Android Studio App
     onDeviceReady: function() {
         console.log(navigator.camera);
+        encendido = false;
 
         //Listener botón hacer foto
         document.getElementById('btnFoto').addEventListener('click', () => {
@@ -37,6 +38,22 @@ var app = {
                 quality: 50,
                 destinationType: Camera.DestinationType.DATA_URL
             });
+        });
+
+        document.getElementById('btnFlash').addEventListener('click', () => {
+            if (encendido == false) {
+                document.getElementById('btnFlash').innerText = `Apagar flash`;
+                window.plugins.flashlight.switchOn(
+                    encendido = true, // optional success callback
+                    encendido = false, // optional error callback
+                    { intensity: 0.3 } // optional as well
+                );
+                encendido = true;
+            } else {
+                document.getElementById('btnFlash').innerText = `Encender flash`;
+                window.plugins.flashlight.switchOff(() => encendido = false, () => encendido = false);
+                encendido = false;
+            }
         });
 
     },
